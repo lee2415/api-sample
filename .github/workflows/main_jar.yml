@@ -25,5 +25,5 @@ jobs:
    
     - name: RUN Application
       run: |
-        java -jar ./build/libs/api-sample-0.0.1-SNAPSHOT.jar
+        nobup java -jar ./build/libs/api-sample-0.0.1-SNAPSHOT.jar &
       
