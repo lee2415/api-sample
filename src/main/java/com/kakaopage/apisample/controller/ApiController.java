@@ -22,6 +22,11 @@ public class ApiController {
         return "hello-world";
     }
 
+    @GetMapping("/hello2")
+    public String hello2() {
+        return "hello-world2";
+    }
+
     @GetMapping("/{seed}")
     public HashMap<String, String> getHash(@PathVariable String seed) throws NoSuchAlgorithmException {
         log.debug("Call hash method seed : {}", seed);
