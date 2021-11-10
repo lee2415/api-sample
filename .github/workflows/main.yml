@@ -42,4 +42,4 @@ jobs:
       - name: Docker run
         run: |
           docker ps -q --filter "name=${{ env.api-sample }}" | grep -q . && docker stop ${{ env.api-sample }} && docker rm -fv ${{ env.api-sample }}
-          docker run -d -p 8090:8090 --name api-sample --restart always ${{ env.DOCKER_IMAGE }}
+          docker run -d -p 8090:8090 --name api-sample --restart always ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
