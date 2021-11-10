@@ -23,7 +23,12 @@ jobs:
         ./gradlew --version
         ./gradlew build
    
-    - name: RUN Application
+    - name: Upload S3
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_S3_UPLOAD }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_UPLOAD_KEY }}
       run: |
-        nobup java -jar ./build/libs/api-sample-0.0.1-SNAPSHOT.jar &
+        aws s3 cp \
+          --region ap-northeast-2 \
+          ./build/libs/*.jar s3://kakaopage-frank-lee/api/
       
