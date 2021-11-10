@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build_deploy:
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -23,7 +23,7 @@ jobs:
         ./gradlew --version
         ./gradlew build
    
-    - name: Upload S3
+    - name: RUN Application
       run: |
-        aws s3 cp ./build/libs/*.jar s3://kakaopage-frank-lee/api/
+        java -jar ./build/libs/api-sample-0.0.1-SNAPSHOT.jar
       
