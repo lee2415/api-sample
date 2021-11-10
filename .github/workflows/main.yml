@@ -9,7 +9,7 @@ on:
 env:
   DOCKER_IMAGE: leel2415/api-sample
   VERSION: ${{ github.sha }}
-  name: api-sample
+  NAME: api-sample
 
 
 jobs:        
@@ -41,5 +41,5 @@ jobs:
     steps: 
       - name: Docker run
         run: |
-          docker ps -q --filter "name=${{ env.api-sample }}" | grep -q . && docker stop ${{ env.api-sample }} && docker rm -fv ${{ env.api-sample }}
-          docker run -d -p 8090:8090 --name api-sample --restart always ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
+          docker ps -q --filter "name=${{ env.NAME }}" | grep -q . && docker stop ${{ env.NAME }} && docker rm -fv ${{ env.NAME }}
+          docker run -d -p 8090:8090 --name ${{ env.NAME }} --restart always ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
