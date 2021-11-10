@@ -25,7 +25,5 @@ jobs:
    
     - name: Upload S3
       run: |
-        aws s3 cp \
-          --region ap-northeast-2 \
-          ./build/libs/*.jar s3://kakaopage-frank-lee
+        aws s3 cp --region ap-northeast-2 ./build/libs/*.jar s3://kakaopage-frank-lee
       
