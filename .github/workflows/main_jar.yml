@@ -8,7 +8,7 @@ on:
 
 jobs:
   build_deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -24,11 +24,11 @@ jobs:
         ./gradlew build
    
     - name: Upload S3
-#       env:
-#         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_S3_UPLOAD }}
-#         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_UPLOAD_KEY }}
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_S3_UPLOAD }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_UPLOAD_KEY }}
       run: |
         aws s3 cp \
           --region ap-northeast-2 \
-          build/libs/api-sample-0.0.1-SNAPSHOT.jar s3://kakaopage-frank-lee/api/
+          build/libs/api-sample-0.0.1-SNAPSHOT.jar s3://kakaoent-frank-lee/api/
       
