@@ -26,7 +26,7 @@ public class ApiController {
     @GetMapping("/hello2")
     public String hello2() {
         log.debug("hello2");
-        return "hello-world2";
+        return "hello-world2222222";
     }
 
     @GetMapping("/{seed}")
