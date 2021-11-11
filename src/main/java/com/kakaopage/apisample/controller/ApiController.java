@@ -19,11 +19,13 @@ public class ApiController {
 
     @GetMapping("/hello")
     public String hello() {
+        log.debug("hello");
         return "hello-world";
     }
 
     @GetMapping("/hello2")
     public String hello2() {
+        log.debug("hello2");
         return "hello-world2";
     }
 
